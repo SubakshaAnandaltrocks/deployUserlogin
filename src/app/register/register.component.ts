@@ -1,7 +1,4 @@
-import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { Component, OnInit } from '@angular/core';
-//import { FormControl } from '@angular/forms';
-//import { TooltipPosition } from '@angular/material/tooltip';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ApiService } from '../shared/api.service';
 import { Employeemodel } from './register.model';
@@ -69,7 +66,6 @@ export class RegisterComponent implements OnInit {
     deleteEmployee(row : any){
       this.api.deleteEmployee(row.id)
       .subscribe(res=>{
-        alert("Details Deleted")
         this.getAllEmployee();
       })
     }
@@ -92,7 +88,6 @@ export class RegisterComponent implements OnInit {
     
       this.api.updateEmployee(this.employeemodelObj,this.employeemodelObj.id)
       .subscribe(res=>{
-        alert("Updated Successfully");
         let ref = document.getElementById('cancel')
         ref?.click();
         this.formvalue.reset();

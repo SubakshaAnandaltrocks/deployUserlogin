@@ -11,14 +11,12 @@ import { ReactiveFormsModule} from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 
-// import{Confirma}
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';   
 
-// import { FormGroup,  FormBuilder,  Validators , FormControl} from '@angular/forms';
 
-// import {AccordionModule,,NO_ERRORS_SCHEMA} from 'primeng/accordion';
  
 
 @NgModule({
@@ -36,7 +34,9 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     RouterModule,
     MatTooltipModule,
-    NgbModule
+    NgbModule,
+    ConfirmationPopoverModule.forRoot({
+      confirmButtonType: 'danger'}),
   
 
     // AccordionModule,
@@ -51,3 +51,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
   ],
 })
 export class AppModule { }
+function confirmButtonType(confirmButtonType: any, arg1: string): any[] | import("@angular/core").Type<any> | import("@angular/core").ModuleWithProviders<{}> {
+  throw new Error('Function not implemented.');
+}
+
