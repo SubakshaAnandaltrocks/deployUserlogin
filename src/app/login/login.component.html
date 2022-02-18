@@ -1,0 +1,32 @@
+<!DOCTYPE html> 
+<html>
+  <head>
+    <title>
+    <link rel="stylesheet" type="text/css" href="register.component.css">
+  </title> 
+  </head>
+  <body class="mass">	
+    <form action="#0">
+		  <div>		
+      <input type="email" name="email" id="email" placeholder=" " required 
+       data-toggle="tooltip" 
+      data-placement="right" title="Enter your Email_Address">
+			<label for="email">Email</label>
+			<div class="requirements"> Must be a valid email addres!</div>
+  		</div>
+	    <div>
+	
+      <input type="current-password" name="password" id="password" placeholder=" "
+			pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" required 
+       data-toggle="tooltip" 
+      data-placement="right" title="Enter the password">
+			<label for="current-password" >Password</label>
+			<div class="requirements"> Must be a valid password!</div>
+		  </div>
+      <a routerLink="/register" routerLinkActive="active">
+      <input type="submit"   data-toggle="tooltip" 
+      data-placement="top" title="Verify Yourself" value="Login"/></a>
+    
+    </form>
+ </body>
+ </html>

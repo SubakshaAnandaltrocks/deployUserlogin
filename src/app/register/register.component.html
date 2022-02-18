@@ -1,0 +1,161 @@
+<!DOCTYPE html> 
+<html>
+  <head>
+    <title>
+    <link rel="stylesheet" type="text/css" href="register.component.css">
+  </title> 
+  </head>
+  <body class="mass">	
+
+    <!-- <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header"> -->
+
+    <marquee style="font-size: larger; font-weight: 100; color: black;" 
+     behaviour="scroll" direction="left" 
+     scrollamount="10" width="100%" height="100px"> WELCOME TO REGISTRATION PAGE
+    </marquee>
+  
+
+    <form action="#0" class="modal-body" [formGroup]="formvalue">
+  		<div>			
+			<input type="name" formControlName="firstname" id="exampleInputfirstname" placeholder="FIRSTNAME" required
+      data-toggle="tooltip" data-placement="right" title="Enter your First_name" aria-describedby="firstname">
+			<label for="exampleInputfirstname"></label>
+		  </div>
+		  <div>
+		
+
+      <input type="name" formControlName="lastname" id="exampleInputlastname" placeholder="LASTNAME" required
+      data-toggle="tooltip" data-placement="right" title="Enter your last_name" aria-describedby="lastname">
+			<label for="exampleInputlastname"></label>
+	  	</div>
+		  <div>
+		
+    
+      <input type="tel" formControlName="phoneno" id="exampleInputphoneno" placeholder="PHONENO"
+			pattern="^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$" required
+      data-toggle="tooltip"  data-placement="right" title="Enter Your Mobile Number">
+			<label for="exampleInputphoneno"></label>
+			<div class="requirements"> Must be a valid Phone Number!</div>
+		  </div>
+		  <div>
+		
+    
+      <input type="email" formControlName="email" id="exampleInputemail" placeholder="EMAIL" required 
+       data-toggle="tooltip" data-placement="right" title="Enter your Email_Address">
+			<label for="exampleInputemail"></label>
+			<div class="requirements"> Must be a valid email addres!</div>
+  		</div>
+	    <div>
+	
+
+      <input type="current-password" formControlName="password" id="exampleInputpassword" placeholder="PASSWORD"
+			pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" required 
+       data-toggle="tooltip" data-placement="right" title="Enter the password">
+			<label for="exampleInputpassword" ></label>
+			<div class="requirements"> Password Contains 6 Characters</div>
+		  </div>
+
+
+      <div class="form-group">
+        <div [innerHtml]='msg' *ngIf="msg" style="color: red;">
+        </div>
+        <div><img [src]="url" *ngIf="url" height="100" width="100" onclick="enlargeImg" id="img1">
+        </div><br>
+        <p><input type="file" (change)="selectFile($event)"z></p>
+      </div>
+        <!-- 
+      <input type="submit"   data-toggle="tooltip" 
+      data-placement="top" title="Verify Yourself" value="User Verification"/>
+       -->
+      <input  type="register" (click)="postEmployeeDetails()" 
+       data-bs-toggle="modal" class="btn btn-danger" data-toggle="tooltip" 
+       data-placement="bottom" title="Please Fill Your Details Buddy" value="Register"/>
+     
+     
+    </form>
+  </body>
+</html>
+
+<!-- modal -->
+   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">HI FLYCART USER</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" [formGroup]="formvalue">
+                  <div class="mb-3">
+                    <label for="exampleInputfirstname" class="form-label">FirstName</label>
+                    <input type="text" formControlName="firstname" class="form-control" id="exampleInputfirstname" aria-describedby="firstname">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputlastname" class="form-label">LastName</label>
+                    <input type="text" formControlName="lastname" class="form-control" id="exampleInputlastname" aria-describedby="lastname">
+                  </div>
+                  <div class="mb-3">
+                      <label for="exampleInputphoneno" class="form-label">PhoneNO</label>
+                      <input type="tel" formControlName="phoneno" class="form-control" id="exampleInputphoneno">
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputemail" class="form-label">EMAIL</label>
+                      <input type="email" formControlName="email" class="form-control" id="exampleInputemail">
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputpassword" class="form-label">Password</label>
+                      <input type="current-password" formControlName="password" class="form-control" id="exampleInputpassword">
+                    </div>
+           </div> 
+          <div class="modal-footer">
+            <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal" data-toggle="tooltip" 
+            data-placement="top" title="Close the process">Close</button>
+            <button type="button" *ngIf="showUpdate" (click)="updateEmployeeDetails()" class="btn btn-primary" data-toggle="tooltip" 
+            data-placement="top" title="Click to Update_Details">Update</button></div>
+          </div>
+        </div>
+      </div>
+
+
+<!--Table creation-->      
+<html>
+  <body class="ele">
+<nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+        <h1 style="color: aliceblue;">Give Details</h1>  
+    </div>
+</nav>
+
+<table class="table mt-3" style="border-collapse: collapse;">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">FirstName</th>
+            <th scope="col">LastName</th>
+            <th scope="col">PhoneNO</th>
+            <th scope="col">Email</th>
+            <th scope="col">Password</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of employeeData">
+           <td>{{row.id}}</td>
+           <td>{{row.firstname}}</td>
+           <td>{{row.lastname}}</td>
+           <td>{{row.phoneno}}</td>
+           <td>{{row.email}}</td>
+           <td>{{row.password}}</td>
+            <td>
+                <button (click)="onEdit(row)" style="color:aliceblue;" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-info" data-toggle="tooltip" 
+                data-placement="left" title="Edit the details">Edit</button>
+                <button (click)="deleteEmployee(row)" class="btn btn-danger mx-3" data-toggle="tooltip" 
+                data-placement="top" title="Delete completely">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+</body>
+</html>
+
