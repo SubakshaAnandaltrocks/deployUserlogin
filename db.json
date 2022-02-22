@@ -1,5 +1,14 @@
 {
-  "posts": [],
+  "posts": [
+    {
+      "id": 1,
+      "firstname": "Test",
+      "lastname": "qweqwe",
+      "phoneno": "9137913313",
+      "email": "SUbaks@123",
+      "password": "Sanhw1o1"
+    }
+  ],
   "comments": [],
   "profile": {
     "name": "typicode"
